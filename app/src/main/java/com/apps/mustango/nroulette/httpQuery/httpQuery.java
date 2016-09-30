@@ -13,7 +13,12 @@ import java.net.URL;
 public class httpQuery {
 
     byte[] getUrlBytes(String urlSpec) throws IOException{
+        //create object URL on base string http://*.*
         URL url=new URL(urlSpec);
+        /*create connection object to http://*.*
+        it open access to HTTP-interfaces to work with query methods,
+        responses code, streaming and other's
+        */
         HttpURLConnection connection=(HttpURLConnection)url.openConnection();
 
         try{
@@ -25,6 +30,7 @@ public class httpQuery {
 
             int bytesRead=0;
             byte[] buffer=new byte[1024];
+            //do cycle while data not end
             while ((bytesRead=in.read(buffer))>0){
                 out.write(buffer,0,bytesRead);
             }
