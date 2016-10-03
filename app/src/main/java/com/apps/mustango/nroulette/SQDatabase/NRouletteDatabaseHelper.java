@@ -14,7 +14,7 @@ public class NRouletteDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME="NROULETTE"; //database name
     private static final int DB_VERSION=1; //database version
 
-    NRouletteDatabaseHelper(Context context){
+    public NRouletteDatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
     }
 

@@ -44,7 +44,8 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-      //  setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
+      //  toolbar.setTitle("Search movie");
         toolbar.setNavigationIcon(R.drawable.ic_drawer);
         mDrawerToggle=new ActionBarDrawerToggle(this, mDrawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
 
@@ -75,8 +76,8 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
 
         if (fragment == null){
 
-            //fragment = createFragment();
-           // args.putInt(NewsListFragment.ARG_NEWS_NUMBER,0);
+            fragment = createFragment();
+             args.putInt(MoviesListFragment.ARG_NEWS_NUMBER,0);
             fragment.setArguments(args);
             fm.beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
         }
@@ -101,7 +102,27 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+        if (fragment != null) {
+            fragment = createFragment();
+            args.putInt(MoviesListFragment.ARG_NEWS_NUMBER, position);
+            fragment.setArguments(args);
+            if (position == 0) {
+                fm.beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
+                setTitle("Saved movies");
+            } else{ if (position == 1) {
+                Intent intent = new Intent(this, FindMoviesActivity.class);
+                startActivity(intent);
+            } else if (position == 2) {
+                Intent intent = new Intent(this, FindMoviesActivity.class);
+                startActivity(intent);
+            }
+                setTitle("Find movie");
+            }
 
+        }
+
+        mDrawerLayout.closeDrawer(mDrawerList);
+/*
         if (fragment != null){
             fragment = createFragment();
             args.putInt(MoviesListFragment.ARG_NEWS_NUMBER,position);
@@ -116,14 +137,11 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
                Intent intent = new Intent(this, AboutProgramActivity.class);
                 startActivity(intent);
 
-            }*/
+            }
         }
-        // Highlight the selected item, update the title, and close the drawer
-        if (position!=10) {
-            mDrawerList.setItemChecked(position, true);
-            mDrawerLayout.closeDrawer(mDrawerList);
+    */
+
         }
-    }
 
 }
 

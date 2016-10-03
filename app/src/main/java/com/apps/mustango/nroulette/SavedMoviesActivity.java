@@ -1,13 +1,10 @@
 package com.apps.mustango.nroulette;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SavedMoviesActivity extends AppCompatActivity {
-
+public class SavedMoviesActivity extends SingleMoviesActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saved_movies);
-    }
+    protected Fragment createFragment(){return new MoviesListFragment();}
 }
