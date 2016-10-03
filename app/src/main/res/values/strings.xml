@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">NRoulette</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <!--action category items list -->
+
+    <string-array name="movies_action">
+        <item>Saved Movies</item>
+        <item>Search with title</item>
+        <item>Search with director</item>
+    </string-array>
+
 </resources>
