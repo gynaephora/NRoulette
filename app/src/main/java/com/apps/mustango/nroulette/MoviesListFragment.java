@@ -42,7 +42,7 @@ public class MoviesListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
 
-        ListView listFilms=getListView();
+/*        ListView listFilms=getListView();
 
         try{
             SQLiteOpenHelper rouletteDatabaseHelper=new NRouletteDatabaseHelper(getActivity());
@@ -55,7 +55,7 @@ public class MoviesListFragment extends ListFragment {
         }catch(SQLiteException e){
                 Toast toast=Toast.makeText(getActivity(),"Database unavailable", Toast.LENGTH_SHORT);
                 toast.show();
-        }
+        }*/
 
         }
 
