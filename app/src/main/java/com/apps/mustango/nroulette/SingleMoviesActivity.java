@@ -45,7 +45,8 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-      //  toolbar.setTitle("Search movie");
+       // toolbar.setTitle("Find movie");
+        setTitle("Find movie");
         toolbar.setNavigationIcon(R.drawable.ic_drawer);
         mDrawerToggle=new ActionBarDrawerToggle(this, mDrawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
 
@@ -80,6 +81,7 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
              args.putInt(MoviesListFragment.ARG_NEWS_NUMBER,0);
             fragment.setArguments(args);
             fm.beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
+
         }
 
 
@@ -96,27 +98,28 @@ public abstract class SingleMoviesActivity extends AppCompatActivity {
     private void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position
 
-        Bundle args = new Bundle();
+       /* Bundle args = new Bundle();
         args.putInt(MoviesListFragment.ARG_NEWS_NUMBER,position);
+*/
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
         if (fragment != null) {
             fragment = createFragment();
-            args.putInt(MoviesListFragment.ARG_NEWS_NUMBER, position);
-            fragment.setArguments(args);
+         /*   args.putInt(MoviesListFragment.ARG_NEWS_NUMBER, position);
+            fragment.setArguments(args);*/
             if (position == 0) {
                 fm.beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
-                setTitle("Saved movies");
+
             } else{ if (position == 1) {
-                Intent intent = new Intent(this, FindMoviesActivity.class);
+                Intent intent = new Intent(this, FindMoviesByDirector.class);
                 startActivity(intent);
             } else if (position == 2) {
                 Intent intent = new Intent(this, FindMoviesActivity.class);
                 startActivity(intent);
             }
-                setTitle("Find movie");
+
             }
 
         }
